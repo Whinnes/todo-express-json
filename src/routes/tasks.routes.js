@@ -1,11 +1,20 @@
 const router = require('express').Router()
+const fs = require('fs')
+
+let tasks = []
 
 router.get('/',(req,res)=>{
-    res.send('Home page')
+    res.render('index')
 })
 
 router.get('/add',(req,res)=>{
-    res.send('Add task')
+    res.render('addtask')
+})
+
+router.post('/add',(req,res)=>{
+    console.log(req.body)
+    res.send('Task received')
+
 })
 
 router.get('/delete',(req,res)=>{
